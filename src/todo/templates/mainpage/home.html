@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+
+    <h1>Data</h1>
+    {% for Todo in user.todolist.all %}
+    <p>{{ Todo }}</p>
+    {% endfor %}
+
+    {% else %}
+    <p>You need to <a href="/login">Login</a> first.</p>
+    {% endif %}
+
+</body>
+
+</html>
